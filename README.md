@@ -19,6 +19,6 @@ Data is also handled by a local database accessed by **SQLite3** (Structured Que
 
 <h2> <img src = "Images/CameraLogo.png" width = "25" align = "center">  Game Snapshots</h2>
 
-<img src = "Images/Screenshots/LoginPage.png" width  = "500" align = "center">
+<img src = "Images/Screenshots/LoginPage.png" width  = "300" align = "center">
 
-<img src = "Images/Screenshots/Game.png" width  = "500" align = "center">
+<img src = "Images/Screenshots/Game.png" width  = "300" align = "center">
