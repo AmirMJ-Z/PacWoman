@@ -1,4 +1,4 @@
-package view.animations;
+package view.animations.GhostAlgorithms;
 
 import javafx.animation.Transition;
 import javafx.util.Duration;

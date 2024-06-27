@@ -1,13 +1,11 @@
-package view.animations;
+package view.animations.GhostAlgorithms;
 
 import javafx.animation.Transition;
 import javafx.util.Duration;
 import model.*;
 import view.GameLauncher;
 
-import java.util.Random;
-
-public class SmartGhostAnimation extends Transition {
+public class GeniusGhostAnimation extends Transition {
     private GameLauncher gameLauncher;
     private final double VELOCITY = 1;
     private final int DURATION = 100;
@@ -17,7 +15,7 @@ public class SmartGhostAnimation extends Transition {
     private Line line;
     private final double MARGIN = 8;
 
-    public SmartGhostAnimation(GameLauncher gameLauncher, Ghost ghost) {
+    public GeniusGhostAnimation(GameLauncher gameLauncher, Ghost ghost) {
         this.ghost = ghost;
         this.gameLauncher = gameLauncher;
         this.setCycleCount(-1);

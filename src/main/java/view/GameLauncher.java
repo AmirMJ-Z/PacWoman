@@ -3,23 +3,20 @@ package view;
 import controller.GameController;
 import javafx.animation.Transition;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
-import view.animations.GhostAnimation;
-import view.animations.SmartGhostAnimation;
-import view.animations.TalkingPacManAnimation;
+import view.animations.GhostAlgorithms.GhostAnimation;
+import view.animations.GhostAlgorithms.GeniusGhostAnimation;
+import view.animations.GhostAlgorithms.SemiGeniusGhostAnimation;
+import view.animations.GhostAlgorithms.SmartGhostAnimation;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -199,28 +196,33 @@ public class GameLauncher extends Application {
         int index = pane.getChildren().indexOf(pacMan);
         Ghost greenGhost = new Ghost(game, 152+Ghost.WIDTH, 0+Ghost.HEIGHT, new Image(getClass().getResource("/Images/Ghosts/GreenGhost.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/GreenGhostFlipped.png").toExternalForm()));
         Ghost Imposter1 = new Ghost(game, 500 - greenGhost.WIDTH/2, 5, new Image(getClass().getResource("/Images/Ghosts/Imposter.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/ImposterFlipped.png").toExternalForm()));
-        Ghost blueGhost = new Ghost(game, 848-2*Ghost.WIDTH, 0+Ghost.HEIGHT, new Image(getClass().getResource("/Images/Ghosts/BlueGhost.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/BlueGhostFlipped.png").toExternalForm()));
+        //Ghost blueGhost = new Ghost(game, 848-2*Ghost.WIDTH, 0+Ghost.HEIGHT, new Image(getClass().getResource("/Images/Ghosts/BlueGhost.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/BlueGhostFlipped.png").toExternalForm()));
+        Ghost Imposter2 = new Ghost(game, 848-2*Ghost.WIDTH, 0+Ghost.HEIGHT, new Image(getClass().getResource("/Images/Ghosts/BlueGhost.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/BlueGhostFlipped.png").toExternalForm()));
         Ghost redGhost = new Ghost(game, 848-2*Ghost.WIDTH, 1000-2*Ghost.HEIGHT, new Image(getClass().getResource("/Images/Ghosts/RedGhost.png").toExternalForm()), new Image(getClass().getResource("/Images/Ghosts/RedGhostFlipped.png").toExternalForm()));
 
         ghosts.getChildren().add(Imposter1);
         ghosts.getChildren().add(redGhost);
-        ghosts.getChildren().add(blueGhost);
+        //ghosts.getChildren().add(blueGhost);
         ghosts.getChildren().add(greenGhost);
+        ghosts.getChildren().add(Imposter2);
 
-        SmartGhostAnimation imposter1Animation = new SmartGhostAnimation(this, Imposter1);
-        GhostAnimation redAnimation = new GhostAnimation(this, redGhost);
-        GhostAnimation blueAnimation = new GhostAnimation(this, blueGhost);
+        GeniusGhostAnimation imposter1Animation = new GeniusGhostAnimation(this, Imposter1);
+        SemiGeniusGhostAnimation redAnimation = new SemiGeniusGhostAnimation(this, redGhost);
+//        GhostAnimation blueAnimation = new GhostAnimation(this, blueGhost);
         GhostAnimation greenAnimation = new GhostAnimation(this, greenGhost);
+        SmartGhostAnimation imposter2Animation = new SmartGhostAnimation(this, Imposter2);
 
         ghostAnimations.add(imposter1Animation);
         ghostAnimations.add(redAnimation);
-        ghostAnimations.add(blueAnimation);
+//        ghostAnimations.add(blueAnimation);
         ghostAnimations.add(greenAnimation);
+        ghostAnimations.add(imposter2Animation);
 
         imposter1Animation.play();
         redAnimation.play();
-        blueAnimation.play();
+//        blueAnimation.play();
         greenAnimation.play();
+        imposter2Animation.play();
 
         pane.getChildren().add(index, ghosts);
     }
