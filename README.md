@@ -1,7 +1,7 @@
 # PacWoman .:The Kitchen:.
 <img src = "Images/PacWomanBanner.jpg" align = "center" width  = "1000">
 
-<img height = "50">
+<img height = "20">
 
 > <img src = "Images/Sharif Banner.png" width = "100" align = "center"> ***Department of Electrical Engineering, Sharif University of Technology***
 
@@ -23,6 +23,6 @@ Data is also handled by a local database accessed by **SQLite3** (Structured Que
 
 <img src = "Images/Screenshots/LoginPage.png" width  = "500" align = "center">
 
-<img height = "100">
+<img height = "20">
 
 <img src = "Images/Screenshots/Game.png" width  = "500" align = "center">
