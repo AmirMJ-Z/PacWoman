@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.sql.SQLException;
 
@@ -86,6 +87,9 @@ public class App {
     }
 
     public void addWarningGraphic(Alert alert) {
+        alert.setResizable(false);
+        alert.initStyle(StageStyle.TRANSPARENT);
+
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/CSS/AlertStyle.css").toString());
         dialogPane.getStyleClass().add("dialog");
@@ -98,6 +102,9 @@ public class App {
     }
 
     public void addConfirmationGraphic(Alert alert) {
+        alert.setResizable(false);
+        alert.initStyle(StageStyle.TRANSPARENT);
+
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/CSS/ConfirmationStyle.css").toString());
         dialogPane.getStyleClass().add("dialog");
