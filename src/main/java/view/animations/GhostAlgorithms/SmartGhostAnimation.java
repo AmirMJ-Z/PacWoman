@@ -107,6 +107,12 @@ public class SmartGhostAnimation extends Transition {
         }
 
         else {
+            try {
+                pacManIntersection();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
             if (x <= 152) {
                 x = 152;
                 ghost.turnRight();
