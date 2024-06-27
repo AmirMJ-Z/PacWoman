@@ -1,0 +1,28 @@
+.buttons {
+    -fx-background-color: "yellow";
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: rgb(240, 6, 9);
+    -fx-border-color: rgb(240, 6, 9);
+    -fx-border-width: 5;
+    -fx-border-radius: 500;
+    -fx-font-size: 25;
+    -fx-background-radius: 250;
+}
+
+.buttons:hover {
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+    -fx-font-size: 30;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.6, 0, 0);
+}
+
+.buttons:pressed {
+    -fx-background-color: "blue";
+    -fx-text-fill: "yellow";
+    -fx-border-color: "yellow";
+}
+
+.root {
+    -fx-background-image: url("../Images/MainBackground.jpg");
+}

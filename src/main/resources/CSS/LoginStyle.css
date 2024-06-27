@@ -1,0 +1,45 @@
+.root {
+    -fx-background-image: url(../Images/LoginBackground.jpg);
+}
+
+.title {
+    -fx-text-fill: rgb(153, 0, 0);
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 30;
+}
+
+.buttons {
+    -fx-background-color: rgb(153, 0, 0);
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: "yellow";
+    -fx-border-color: "yellow";
+    -fx-border-width: 5;
+    -fx-border-radius: 400;
+    -fx-font-size: 20;
+    -fx-background-radius: 250;
+}
+
+.buttons:hover {
+    -fx-background-color: rgb(153, 0, 0);
+    -fx-border-width: 2;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.6, 0, 0);
+}
+
+.buttons:pressed {
+    -fx-background-color: "blue";
+    -fx-text-fill: "yellow";
+    -fx-border-color: "yellow";
+}
+
+.text-field {
+    -fx-font-size: 30;
+    -fx-text-alignment: CENTER;
+    -fx-background-color: rgb(153, 0, 0);
+    -fx-text-fill : "yellow";
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-prompt-text-fill: "yellow";
+
+}

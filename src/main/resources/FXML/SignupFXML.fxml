@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="view.SignupController"
+            prefHeight="1000.0" prefWidth="1000.0" stylesheets="@../CSS/SignupStyle.css" styleClass="root">
+    <center>
+        <HBox onKeyPressed="#back">
+            <Label minWidth="470"/>
+            <VBox alignment="CENTER" spacing="40">
+                <Label  minHeight="100"/>
+                <Label text="Welcome!" styleClass="title" fx:id="welcomeText" maxWidth="350" alignment="CENTER" id="welcomeText"/>
+                <TextField minWidth="350" maxWidth="350" minHeight="50"  alignment="CENTER" promptText="Your username here" onKeyReleased="#updateLabel" fx:id="usernameField" onKeyPressed="#submit"/>
+                <Button text="REGISTER" styleClass="buttons" maxWidth="200" onMouseClicked="#signup"/>
+            </VBox>
+        </HBox>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,20 @@
+.dialog {
+    -fx-background-color: #0ca20c;
+    -fx-text-fill: white;
+}
+
+.header-panel{
+    -fx-background-image: url(../Images/ConfirmationBackground.jpg);
+    -fx-background-repeat: space;
+}
+
+.button {
+    -fx-background-color: yellow;
+    -fx-text-fill: red;
+    -fx-border-radius: 50;
+}
+
+.button:hover {
+    -fx-background-color: blue;
+    -fx-text-fill: yellow;
+}

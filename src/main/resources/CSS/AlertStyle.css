@@ -1,0 +1,20 @@
+.dialog {
+    -fx-background-color: yellow;
+}
+
+.header-panel{
+    -fx-background-image: url(../Images/ErrorBackground.jpg);
+    -fx-background-repeat: space;
+}
+
+.button {
+    -fx-background-color: red;
+    -fx-text-fill: yellow;
+    -fx-border-radius: 50;
+}
+
+.button:hover {
+    -fx-background-color: blue;
+    -fx-text-fill: yellow;
+}
+
