@@ -9,7 +9,7 @@ In this project we are trying to make our own version of the nostalgic retro gam
 
 As for the graphics, we will use **JavaFX** as a software platform designed to deliver desktop applications.
 
-Data is also handled by a local database accessed by **SQLite3** (Structured Query Language).
+Data is also handled using a local database accessed by **SQLite3** (Structured Query Language).
 
 <h2> <img src = "https://www.freepnglogos.com/uploads/star-png/star-alt-icon-small-flat-iconset-paomedia-13.png" width = "25" align = "center"> Credits</h2>
 
