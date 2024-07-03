@@ -11,6 +11,7 @@ public class GameController {
         this.gameLauncher = gameLauncher;
         this.game = gameLauncher.getGame();
         PacManAnimation pacManAnimation = new PacManAnimation(gameLauncher);
+        gameLauncher.getAllAnimations().add(pacManAnimation);
         pacManAnimation.play();
     }
 

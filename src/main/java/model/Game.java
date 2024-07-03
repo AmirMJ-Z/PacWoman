@@ -34,7 +34,7 @@ public class Game {
     private MediaPlayer mediaPlayer;
 
     public void gameWin() throws Exception {
-        gameLauncher.stopGhostAnimations();
+        gameLauncher.stopAllAnimations();
 
         App.app.getDatabase().updateScore(currentPlayer, Math.max(score, currentPlayer.getScore()));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -50,7 +50,7 @@ public class Game {
     }
 
     public void gameLose() throws Exception {
-        gameLauncher.stopGhostAnimations();
+        gameLauncher.stopAllAnimations();
 
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("GAME OVER");

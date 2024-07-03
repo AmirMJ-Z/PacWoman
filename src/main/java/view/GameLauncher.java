@@ -29,6 +29,14 @@ public class GameLauncher extends Application {
     private Pane collisions = new Pane();
     private Pane socks = new Pane();
     private Pane ghosts = new Pane();
+    private Pane speedySocks = new Pane();
+
+    public ArrayList<Transition> getGhostAnimations() {
+        return ghostAnimations;
+    }
+    public ArrayList<Transition> getAllAnimations() {return allAnimations;}
+
+    private ArrayList<Transition> allAnimations = new ArrayList<>();
 
     public Pane getGhosts() {
         return ghosts;
@@ -64,6 +72,10 @@ public class GameLauncher extends Application {
         game = new Game(user, this);
         pacMan = new PacMan(this.game);
         gameController = new GameController(this);
+    }
+
+    public Pane getSpeedySocks() {
+        return speedySocks;
     }
 
     public TalkingPacMan getTalkingPacMan() {
@@ -137,11 +149,25 @@ public class GameLauncher extends Application {
             for (int j=0; j<7; j++) {
                 y = height + (j * 158);
                 if (!((i == 0 && (j == 0 || j == 6)) || (i == 8 && (j == 0 || j == 6)))) {
-                    if (random.nextInt(16) == 9) {
+                    if (random.nextInt(20) == 9) {
                         StinkyPileOfSocks stinkyPileOfSocks = new StinkyPileOfSocks(game);
                         stinkyPileOfSocks.setX(x-10);
                         stinkyPileOfSocks.setY(y-24);
                         socks.getChildren().add(stinkyPileOfSocks);
+                    }
+
+                    else if (random.nextInt(25) == 9) {
+                        SpeedySocks speedySock = new SpeedySocks(game);
+                        speedySock.setX(x);
+                        speedySock.setY(y);
+                        speedySocks.getChildren().add(speedySock);
+                    }
+
+                    else if (random.nextInt(25) == 9) {
+                        FrozenSocks frozenSocks = new FrozenSocks(game);
+                        frozenSocks.setX(x);
+                        frozenSocks.setY(y);
+                        socks.getChildren().add(frozenSocks);
                     }
 
                     else {
@@ -168,6 +194,7 @@ public class GameLauncher extends Application {
 
         int index = pane.getChildren().indexOf(pacMan);
         pane.getChildren().add(index, socks);
+        pane.getChildren().add(index, speedySocks);
     }
 
     private void setScoreVisualizer() {
@@ -207,16 +234,21 @@ public class GameLauncher extends Application {
         ghosts.getChildren().add(Imposter2);
 
         GeniusGhostAnimation imposter1Animation = new GeniusGhostAnimation(this, Imposter1);
-        SemiGeniusGhostAnimation redAnimation = new SemiGeniusGhostAnimation(this, redGhost);
+        SemiGeniusGhostAnimation redAnimation = new SemiGeniusGhostAnimation(this, redGhost, 500);
 //        GhostAnimation blueAnimation = new GhostAnimation(this, blueGhost);
         GhostAnimation greenAnimation = new GhostAnimation(this, greenGhost);
-        SmartGhostAnimation imposter2Animation = new SmartGhostAnimation(this, Imposter2);
+        SemiGeniusGhostAnimation imposter2Animation = new SemiGeniusGhostAnimation(this, Imposter2, 600);
 
         ghostAnimations.add(imposter1Animation);
         ghostAnimations.add(redAnimation);
 //        ghostAnimations.add(blueAnimation);
         ghostAnimations.add(greenAnimation);
         ghostAnimations.add(imposter2Animation);
+        allAnimations.add(imposter1Animation);
+
+        allAnimations.add(redAnimation);
+        allAnimations.add(greenAnimation);
+        allAnimations.add(imposter2Animation);
 
         imposter1Animation.play();
         redAnimation.play();
@@ -227,9 +259,25 @@ public class GameLauncher extends Application {
         pane.getChildren().add(index, ghosts);
     }
 
-    public void stopGhostAnimations() {
+    public void pauseGhosts() {
         for (Transition i : ghostAnimations) {
+            i.pause();
+        }
+    }
+
+    public void resumeGhosts() {
+        for (Transition i : ghostAnimations) {
+            i.play();
+        }
+    }
+
+    public void stopAllAnimations() {
+        for (Transition i : allAnimations) {
             i.stop();
         }
+    }
+
+    public void removeSpeedySocks() {
+        speedySocks.getChildren().clear();
     }
 }

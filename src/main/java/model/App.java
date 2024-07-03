@@ -1,6 +1,5 @@
 package model;
 
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
@@ -13,8 +12,10 @@ import javafx.stage.StageStyle;
 import java.sql.SQLException;
 
 public class App {
-    private final double HIGH_VOLUME = 70 * 0.01;
-    private final double LOW_VOLUME = 35 * 0.01;
+    private final double HIGH_VOLUME = 100 * 0.01;
+//    private final double HIGH_VOLUME = 0;
+    private final double LOW_VOLUME = 70 * 0.01;
+//    private final double LOW_VOLUME = 0;
     private final Database database = new Database("jdbc:sqlite:C:\\Users\\Amirr\\Main Server\\Java Projects\\PacMan\\src\\main\\resources\\Database\\usersdb.db");
 
     public Database getDatabase() {

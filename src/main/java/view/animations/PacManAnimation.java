@@ -6,14 +6,14 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import model.Point;
-import model.StinkyPileOfSocks;
-import model.StinkySocks;
+import model.*;
 import view.GameLauncher;
+
+import java.util.ArrayList;
 
 public class PacManAnimation extends Transition {
     private GameLauncher gameLauncher;
-    private final double VELOCITY = 1.5;
+    private double VELOCITY = 1.5;
     private final int DURATION = 100;
     private boolean closed;
     private ImagePattern close;
@@ -21,8 +21,13 @@ public class PacManAnimation extends Transition {
     private ImagePattern openFlipped;
     private ImagePattern flippedClosed;
     private final double DISTANCE = 20 ;
+    private Countdown countdown;
+    private Countdown speedyCountdown;
 
     public PacManAnimation(GameLauncher gameLauncher) {
+        speedyCountdown = new Countdown(10);
+        speedyCountdown.start();
+
         this.gameLauncher = gameLauncher;
         this.setCycleCount(-1);
         this.setCycleDuration(Duration.millis(DURATION));
@@ -32,8 +37,23 @@ public class PacManAnimation extends Transition {
         flippedClosed = new ImagePattern(new Image(getClass().getResource("/Images/PacMan-Closed-Flipped.png").toExternalForm()));
         openFlipped = new ImagePattern(new Image(getClass().getResource("/Images/pacmanFlipped.png").toExternalForm()));
     }
+
+    private void checkCountdown() {
+        if (countdown != null && countdown.timeRemaining() == 0) {
+            gameLauncher.resumeGhosts();
+        }
+    }
+
+    private void checkSpeedies() {
+        if (speedyCountdown != null && speedyCountdown.timeRemaining() == 0) {
+            gameLauncher.removeSpeedySocks();
+        }
+    }
     @Override
     protected void interpolate(double frac) {
+        checkCountdown();
+        checkSpeedies();
+
         double x=0, y=0;
         if (gameLauncher.getPacMan().getRotate() == 0) {
             x = gameLauncher.getPacMan().getX() + VELOCITY;
@@ -115,10 +135,20 @@ public class PacManAnimation extends Transition {
             return;
         }
 
-        for (int i=0; i<gameLauncher.getSocks().getChildren().size(); i++) {
+        ArrayList<Rectangle> allSocks = new ArrayList<>();
+
+        for (Node i : gameLauncher.getSocks().getChildren()) {
+            allSocks.add((Rectangle) i);
+        }
+
+        for (Node i : gameLauncher.getSpeedySocks().getChildren()) {
+            allSocks.add((Rectangle) i);
+        }
+
+        for (int i=0; i< allSocks.size(); i++) {
             offset = 0;
 
-            Node node = gameLauncher.getSocks().getChildren().get(i);
+            Node node = allSocks.get(i);
             Rectangle sock = (Rectangle) node;
             Point pacManPoint = new Point(gameLauncher.getPacMan().getX() + gameLauncher.getPacMan().getWidth()/2, gameLauncher.getPacMan().getY() + gameLauncher.getPacMan().getHeight()/2);
             Point socksPoint = new Point(sock.getX() + sock.getWidth()/2, sock.getY() + sock.getHeight()/2);
@@ -129,6 +159,7 @@ public class PacManAnimation extends Transition {
 
             if (Point.getDistance(pacManPoint, socksPoint) < DISTANCE + offset) {
                 gameLauncher.getSocks().getChildren().remove(node);
+                gameLauncher.getSpeedySocks().getChildren().remove(node);
                 gameLauncher.getGame().playPop();
 
                 if (node.getClass() == StinkySocks.class) {
@@ -137,10 +168,20 @@ public class PacManAnimation extends Transition {
                     fallingSockAnimation.play();
                 }
 
-                else {
+                else if (node.getClass() == StinkyPileOfSocks.class) {
                     gameLauncher.getGame().addScore(((StinkyPileOfSocks) node).getScore());
                     FallingSockAnimation fallingSockAnimation = new FallingSockAnimation(gameLauncher);
                     fallingSockAnimation.play();
+                }
+
+                else if (node.getClass() == FrozenSocks.class) {
+                    countdown = new Countdown(5);
+                    countdown.start();
+                    gameLauncher.pauseGhosts();
+                }
+
+                else {
+                    VELOCITY += 0.15;
                 }
             }
         }

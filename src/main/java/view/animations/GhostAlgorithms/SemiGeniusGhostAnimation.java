@@ -20,14 +20,15 @@ public class SemiGeniusGhostAnimation extends Transition {
     private final double MARGIN = 8;
     private final double MINIMUM_DISTANCE = 350;
     private boolean rand = true;
-    private final double RADIUS = 350;
+    private double RADIUS = 500;
 
-    public SemiGeniusGhostAnimation(GameLauncher gameLauncher, Ghost ghost) {
+    public SemiGeniusGhostAnimation(GameLauncher gameLauncher, Ghost ghost, double RADIUS) {
         random = new Random();
         this.ghost = ghost;
         this.gameLauncher = gameLauncher;
         this.setCycleCount(-1);
         this.setCycleDuration(Duration.millis(DURATION));
+        this.RADIUS = RADIUS;
 
         line = new Line(new Point(ghost.getX() + ghost.getWidth()/2, ghost.getY() + ghost.getHeight()/2), new Point(gameLauncher.getPacMan().getX() + gameLauncher.getPacMan().getWidth()/2, gameLauncher.getPacMan().getY() + gameLauncher.getPacMan().getHeight()/2));
     }
