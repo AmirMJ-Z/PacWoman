@@ -21,7 +21,7 @@
 </p>
 
 <a href="#project-description">
- <h2> <img src = "Images/Project Description.png" width = "25" align = "center"> Project Description </h2>
+<h2> <img src = "Images/Project Description.png" width = "25" align = "center"> Project Description </h2>
 </a>
 
 In this project, we are trying to make our own version of the nostalgic retro game **PacMan** using the power of **Object Oriented Programming** and **Java** as one of the most frequently used Object Oriented Programming languages.
