@@ -22,7 +22,7 @@
 
 <a href="#project-description">
  <h2> <img src = "Images/Project Description.png" width = "25" align = "center"> Project Description </h2>
- </a>
+</a>
 
 In this project, we are trying to make our own version of the nostalgic retro game **PacMan** using the power of **Object Oriented Programming** and **Java** as one of the most frequently used Object Oriented Programming languages.
 
@@ -33,6 +33,7 @@ Data is also handled using a local database accessed by **SQLite3** (Structured 
 Ghosts movements are designed using **Path Finding Algorithms** to find the shortest path to the player.
 
 <a href="#ghosts-movement"> </a>
+
 > The *Grey* ghost finds the shortest path to the PacMan and follows it. The *Yellow* and *Red* ghosts get close to the PacMan (within a particular radius) and then perform random movements. The *Green* ghost moves completely randomly.
 
 <a href="#credits">
