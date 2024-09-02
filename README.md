@@ -34,7 +34,7 @@ Ghosts movements are designed using **Path Finding Algorithms** to find the shor
 
 <a href="#ghosts-movement"> </a>
 
-> The *Grey* ghost finds the shortest path to the PacMan and follows it. The *Yellow* and *Red* ghosts get close to the PacMan (within a particular radius) and then perform random movements. The *Green* ghost moves completely randomly.
+> The *Grey* ghost finds the shortest path to the PacMan and follows it. The *Yellow* and *Red* ghosts get close to the PacMan (within a particular radius) and then perform random movements. The *Green* ghost moves completely randomly. See [Game Preview](#game-preview) for more details.
 
 <a href="#credits">
 <h2> <img src = "https://www.freepnglogos.com/uploads/star-png/star-alt-icon-small-flat-iconset-paomedia-13.png" width = "25" align = "center"> Credits</h2>
