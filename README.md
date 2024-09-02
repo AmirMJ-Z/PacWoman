@@ -3,7 +3,7 @@
 
 > <img src = "Images/Sharif Banner.png" width = "100" align = "center"> ***Department of Electrical Engineering, Sharif University of Technology***
 
-<h2 align="left">TABLE OF CONTENTS</h2>
+<h2 align="left"> <img src = "https://www.freeiconspng.com/thumbs/tasks-icon/tasks-icon-9.png" width = 25 align = "center"> TABLE OF CONTENTS </h2>
 
 - [GAME PREVIEW](#game-preview)
 - [PROJECT DESCRIPTION](#project-description)
