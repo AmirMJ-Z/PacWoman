@@ -1,4 +1,4 @@
-# PacWoman .:The Kitchen:.
+<h1 align = "center"> PacWoman : The Kitchen </h1>
 <img src = "Images/PacWomanBanner.jpg" align = "center" width  = "1000">
 
 > <img src = "Images/Sharif Banner.png" width = "100" align = "center"> ***Department of Electrical Engineering, Sharif University of Technology***
@@ -42,7 +42,7 @@ Ghosts movements are designed using **Path Finding Algorithms** to find the shor
 
 | Name | School | Student ID |
 | --- | --- | --- |
-| Amirreza Mirjalily | Sharif University of Technology | 402102549 |
+| Amirreza Mirjalily | EE Department, SUT | 402102549 |
 
 <a href="#game-snapshots">
 <h2> <img src = "Images/CameraLogo.png" width = "25" align = "center">  Game Snapshots</h2>
